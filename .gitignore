@@ -3,3 +3,6 @@ dist/
 
 # Node Modules
 node_modules
+
+# Python cache
+__pycache__
