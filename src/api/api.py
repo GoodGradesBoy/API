@@ -23,6 +23,6 @@ if (args.method == "GET"):
     print(scraper.get(args.url).text)
 elif (args.method == "POST"):
     # Send a POST request to the endpoint with an optional payload
-    print(scraper.post(args.url, JSON.loads(args.data) if args.data else {}).text)
+    print(scraper.post(args.url, args.data if args.data else "{}").text)
 else:
     print("That is an unsupported HTTP method!")
