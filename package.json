@@ -1,7 +1,7 @@
 {
   "name": "@nitrotype/api",
-  "version": "0.0.1",
-  "description": "The NitroType API",
+  "version": "0.0.2",
+  "description": "An unofficial API client for the NitroType API.",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",

@@ -17,3 +17,9 @@ tsconfig.json
 
 # Python cache
 __pycache__
+
+# Source
+src/
+
+# ESLint
+.eslintrc.json
