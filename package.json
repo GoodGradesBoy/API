@@ -1,11 +1,11 @@
 {
   "name": "@nitrotype/api",
-  "version": "0.0.2",
-  "description": "An unofficial API client for the NitroType API.",
+  "version": "0.0.3",
+  "description": "An unofficial client for the NitroType API.",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node ./dist/src/index.js",
+    "exec": "node ./dist/src/index.js",
     "dev:lint": "eslint ./src --ext .ts --fix"
   },
   "repository": {
