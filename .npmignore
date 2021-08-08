@@ -1,0 +1,16 @@
+# Node Modules
+node_modules/
+
+# GitHub garbage
+.github/
+.gitignore
+.gitattributes
+
+# IDE garbage
+.vscode/
+
+# Lockfile
+yarn.lock
+
+# TypeScript config
+tsconfig.json

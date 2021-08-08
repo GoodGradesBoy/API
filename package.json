@@ -1,0 +1,28 @@
+{
+  "name": "@krew-io/api",
+  "version": "0.0.0",
+  "description": "The Krew.io API",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node ./dist/src/index.js",
+    "dev:lint": "eslint ./src --ext .ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krew-io/api"
+  },
+  "contributors": [
+    "DamienVesper"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.4.13",
+    "@types/yargs": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "typescript": "^4.3.5"
+  }
+}
