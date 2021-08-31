@@ -5,7 +5,7 @@
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",
-    "exec": "node ./dist/src/index.js",
+    "start": "node ./dist/src/index.js",
     "dev:lint": "eslint ./src --ext .ts --fix"
   },
   "repository": {
