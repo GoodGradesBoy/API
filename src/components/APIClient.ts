@@ -29,7 +29,7 @@ class APIClient {
     /**
      * Send a POST request to the NitroType API.
      * @param url The URL parameter. Should begin with a forward slash.
-     * @param data 
+     * @param data An optional payload to send with the request. Should be an object.
      */
     private post = async (url: string, data?: any): Promise<AxiosResponse> => {
         return typeof data !== undefined
