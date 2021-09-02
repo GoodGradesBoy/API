@@ -15,9 +15,6 @@ yarn.lock
 # TypeScript config
 tsconfig.json
 
-# Python cache
-__pycache__
-
 # Source
 src/
 
