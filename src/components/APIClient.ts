@@ -51,6 +51,18 @@ class APIClient {
         if (loginRes.status === 200) this.states.login = true;
         else throw Error(`The client could not log into the API.`);
     }
+
+    /**
+     * Log out of the account.
+     */
+    destroy = async (): Promise<void> => {
+        if (!this.states.login) throw Error(`The client is not currently logged in to the API.`);
+
+        const loginRes = await this.post(`/logout`);
+
+        if (loginRes.status === 200) this.states.login = false;
+        else throw Error(`The client could not log out of the API.`);
+    }
 }
 
 export default APIClient;
