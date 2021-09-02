@@ -1,3 +1,3 @@
-import APIClient from './components/APIClient';
+import { Client } from './components/APIClient';
 
-export { APIClient };
+export { Client };

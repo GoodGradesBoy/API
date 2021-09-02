@@ -2,20 +2,22 @@ import axios, { AxiosResponse } from 'axios';
 
 const baseURL = `https://nitrotype.com/api`;
 
+enum ClientState {
+    INITIALIZED,
+    READY,
+    DESTROYED
+}
+
 class APIClient {
     credentials: {
         username: string
         password: string
     }
 
-    states: {
-        login: boolean
-    }
+    state: number
 
     constructor () {
-        this.states = {
-            login: false
-        };
+        this.state = ClientState.INITIALIZED;
     }
 
     /**
@@ -42,13 +44,13 @@ class APIClient {
      * @param loginOpts The login parameters. Should be an object containing username and password keys.
      */
     login = async (loginOpts: { username: string, password: string }): Promise<void> => {
-        if (this.states.login) throw Error(`The client has already logged in to the API.`);
+        if (this.state === ClientState.READY) throw Error(`The client has already logged in to the API.`);
 
         this.credentials = loginOpts;
 
         const loginRes = await this.post(`/login`, loginOpts);
 
-        if (loginRes.status === 200) this.states.login = true;
+        if (loginRes.status === 200) this.state = ClientState.READY;
         else throw Error(`The client could not log into the API.`);
     }
 
@@ -56,13 +58,16 @@ class APIClient {
      * Log out of the account.
      */
     destroy = async (): Promise<void> => {
-        if (!this.states.login) throw Error(`The client is not currently logged in to the API.`);
+        if (this.state !== ClientState.READY) throw Error(`The client is not currently logged in to the API.`);
 
         const loginRes = await this.post(`/logout`);
 
-        if (loginRes.status === 200) this.states.login = false;
+        if (loginRes.status === 200) this.state = ClientState.DESTROYED;
         else throw Error(`The client could not log out of the API.`);
     }
 }
 
-export default APIClient;
+export {
+    APIClient,
+    ClientState
+};
