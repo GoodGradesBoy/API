@@ -1,4 +1,4 @@
-import axios, { AxiosPromise, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 const baseURL = `https://nitrotype.com/api`;
 
@@ -31,8 +31,8 @@ class APIClient {
      * @param url The URL parameter. Should begin with a forward slash.
      * @param data An optional payload to send with the request. Should be an object.
      */
-    private post = async (url: string, data?: any): Promise<AxiosResponse> => {
-        return typeof data !== undefined
+    private post = async (url: string, data?: unknown): Promise<AxiosResponse> => {
+        return data !== undefined
             ? await axios.post(baseURL + url)
             : await axios.post(baseURL + url, data);
     }
@@ -41,8 +41,8 @@ class APIClient {
      * Log into the account.
      * @param loginOpts The login parameters. Should be an object containing username and password keys.
      */
-    login = async (loginOpts: typeof this.credentials): Promise<void> => {
-        if (this.states.login) throw Error(`The client has already logged in to the API.`);  
+    login = async (loginOpts: { username: string, password: string }): Promise<void> => {
+        if (this.states.login) throw Error(`The client has already logged in to the API.`);
 
         this.credentials = loginOpts;
 
