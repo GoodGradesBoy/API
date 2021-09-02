@@ -41,13 +41,15 @@ class APIClient {
      * Log into the account.
      * @param loginOpts The login parameters. Should be an object containing username and password keys.
      */
-    login = (loginOpts: typeof this.credentials): void => {
+    login = async (loginOpts: typeof this.credentials): Promise<void> => {
         if (this.states.login) throw Error(`The client has already logged in to the API.`);  
 
         this.credentials = loginOpts;
-        this.post(`/login`, loginOpts);
 
-        this.states.login = true;
+        const loginRes = await this.post(`/login`, loginOpts);
+
+        if (loginRes.status === 200) this.states.login = true;
+        else throw Error(`The client could not log into the API.`);
     }
 }
 
