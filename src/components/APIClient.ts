@@ -8,7 +8,7 @@ enum ClientState {
     DESTROYED
 }
 
-class APIClient {
+class Client {
     credentials: {
         username: string
         password: string
@@ -68,6 +68,6 @@ class APIClient {
 }
 
 export {
-    APIClient,
+    Client,
     ClientState
 };
