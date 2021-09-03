@@ -2,12 +2,18 @@ import axios, { AxiosResponse } from 'axios';
 
 const baseURL = `https://nitrotype.com/api`;
 
+/**
+ * Current client states.
+ */
 enum ClientState {
     INITIALIZED,
     READY,
     DESTROYED
 }
 
+/**
+ * The client to interact with the NitroType API.
+ */
 class Client {
     credentials: {
         username: string
