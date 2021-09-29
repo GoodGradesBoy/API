@@ -1,9 +1,0 @@
-# Main dependencies
-cloudscraper == 1.2.58
-argparse == 1.4.0
-
-# Peer dependencies
-requests >= 2.9.2
-requests_toolbelt >= 0.9.1
-pyparsing >= 2.4.7
-js2py: >=0.67
