@@ -1,0 +1,3 @@
+[submodule "nitrotype"]
+	path = nitrotype
+	url = https://github.com/Vaporwave-Sienna/nitrotype.git
